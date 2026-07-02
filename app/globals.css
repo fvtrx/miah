@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 291 25% 12%; /* dusk plum */
+    --foreground: 340 44% 96%; /* blush ivory */
+
+    --card: 296 24% 18%;
+    --card-foreground: 340 44% 96%;
+
+    --primary: 340 54% 81%; /* rose */
+    --primary-foreground: 291 25% 12%;
+
+    --secondary: 296 24% 22%;
+    --secondary-foreground: 340 44% 96%;
+
+    --muted: 296 20% 24%;
+    --muted-foreground: 340 24% 78%;
+
+    --accent: 36 51% 70%; /* champagne gold */
+    --accent-foreground: 291 25% 12%;
+
+    --border: 296 20% 28%;
+    --input: 296 20% 28%;
+    --ring: 36 51% 70%;
+
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+/* Soft radial glow that warms up after the candle is blown */
+.dusk-sky {
+  background:
+    radial-gradient(60rem 40rem at 50% -10%, hsl(296 30% 20% / 0.9), transparent 60%),
+    linear-gradient(180deg, #1c1120 0%, #241726 55%, #2b1a2b 100%);
+  transition: filter 1.4s ease;
+}
+
+.dusk-sky.lit {
+  filter: brightness(1.18) saturate(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-flicker,
+  .animate-drift,
+  .animate-heartbeat {
+    animation: none !important;
+  }
+  .animate-bloom {
+    animation-duration: 0.01ms !important;
+  }
+}
